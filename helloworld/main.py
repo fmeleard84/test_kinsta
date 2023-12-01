@@ -36,8 +36,8 @@ def agent_mail_1():
     agent = demo()
     return agent
 # Url de test pour la partie Agent
-@app.route('/agent/mail')
-def agent_mail():
+#@app.route('/agent/mail')
+#def agent_mail():
 
   #  agent = agent_test_2()
    # return agent
