@@ -1,11 +1,29 @@
 
 from flask import Flask, render_template, send_from_directory, url_for
+import connexion
+from agent.init_agent import agent_test
 
-app = Flask(__name__)
+#app = Flask(__name__)
+
+# Création de  l'instance de l'application
+app = connexion.App(__name__, specification_dir='./')
+
+# Lecture du fichier swagger.yml pour définir les points d'arrivée (endpoints)
+app.add_api('swagger.yml')
+
+
+# Dossier ou seront enregistrer les fichiers MP3 monté -> URL /montage
 
 @app.route('/montage/<filename>')
 def download_file(filename):
-    return send_from_directory("montage", filename)
+    return send_from_directory("audio/montage", filename)
+
+
+# Url de test pour la partie Agent
+@app.route('/agent/mail')
+def agent_mail():
+    agent = agent_test()
+    return agent
 
 @app.route('/toto')
 def test_fm():
