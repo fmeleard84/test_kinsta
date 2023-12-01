@@ -1,7 +1,9 @@
 
 from flask import Flask, render_template, send_from_directory, url_for
 #import connexion
-from agent.init_agent import agent_test
+#from agent.init_agent import agent_test
+from agent_2 import agent_test_2
+
 
 app = Flask(__name__)
 
@@ -22,7 +24,7 @@ def download_file(filename):
 # Url de test pour la partie Agent
 @app.route('/agent/mail')
 def agent_mail():
-    agent = agent_test()
+    agent = agent_test_2()
     return agent
 
 @app.route('/toto')
