@@ -1,6 +1,11 @@
 
 from flask import Flask, render_template, send_from_directory
 #import connexion
+from agent_2 import agent_test_2
+from test_fm import demo
+from templates.test_fm_2 import demo2
+
+#from agent.init_agent import agent_test
 #from agent.init_agent import agent_test
 
 
@@ -19,11 +24,20 @@ app = Flask(__name__)
 def download_file(filename):
     return send_from_directory("audio/montage", filename)
 
+@app.route('/demo2')
+def agent_mail_2():
 
+    agent = demo2()
+    return agent
+
+@app.route('/demo')
+def agent_mail_1():
+
+    agent = demo()
+    return agent
 # Url de test pour la partie Agent
 @app.route('/agent/mail')
 def agent_mail():
-    from agent_2 import agent_test_2
 
     agent = agent_test_2()
     return agent
