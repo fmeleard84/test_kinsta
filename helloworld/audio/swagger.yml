@@ -1,0 +1,62 @@
+swagger: "2.0"
+info:
+  description: Ceci est le fichier swagger correspondant à nôtre API
+  version: "1.0.0"
+  title: Swagger pour API ReST
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Chemins supportés
+paths:
+  /people:
+    get:
+      operationId: people.read
+      tags:
+        - People
+      summary: Structure de données people sous-jacente
+      description: Lire la liste des personnes people
+      responses:
+        200:
+          description: Succès dans la lecture des données
+          schema:
+            type: array
+            items:
+              properties:
+                fname:
+                  type: string
+                lname:
+                  type: string
+                timestamp:
+                  type: string
+
+  /make_mixe:
+    get:
+      operationId: make_mixe.start
+      tags:
+        - make_mixe
+      summary: Creer un mixte de son
+      description: Recuperer un son d'une url et creer un mixte en retour
+      parameters:
+        - name: url
+          in: query
+          required: true
+          type: string
+        - name: name
+          in: query
+          required: true
+          type: string
+      responses:
+        200:
+          description: Le mixte est créé
+          schema:
+            type: object
+            properties:
+              url:
+                type: string
+              name:
+                type: string
+
