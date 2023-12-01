@@ -1,7 +1,7 @@
 
 from flask import Flask, render_template, send_from_directory
 #import connexion
-from agent_2 import agent_test_2
+#from agent_2 import agent_test_2
 from test_fm import demo
 from templates.test_fm_2 import demo2
 
@@ -39,8 +39,8 @@ def agent_mail_1():
 @app.route('/agent/mail')
 def agent_mail():
 
-    agent = agent_test_2()
-    return agent
+  #  agent = agent_test_2()
+   # return agent
 
 @app.route('/toto')
 def test_fm():
