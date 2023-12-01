@@ -1,4 +1,8 @@
 Flask==2.2.2
 gunicorn==20.1.*
 Werkzeug==2.2.2
+<<<<<<< Updated upstream
 connexion[swagger-ui]==3.0.1
+=======
+connexion[swagger-ui]==3.0.1
+>>>>>>> Stashed changes
